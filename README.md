@@ -1,5 +1,6 @@
 # Game Technology Project 1
 TODO: Insert project description here.
+Link for milestone documentation: https://docs.google.com/document/d/1I8gp3Wp6AIJhgAFdRwjdtINfy37_oDJGJKEYYP11wSk/edit?usp=sharing
 ## Building the Project
 After checking out the project with either
 ```
