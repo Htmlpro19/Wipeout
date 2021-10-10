@@ -1,5 +1,8 @@
 #include <Godot.hpp>
 #include "player.h"
+#include "spinning_block.h"
+#include "wipeout_fist.h"
+#include "trophy.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
@@ -13,4 +16,7 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::Godot::nativescript_init(handle);
 
     godot::register_class<godot::Player>();
+    godot::register_class<godot::SpinningBlock>();
+    godot::register_class<godot::WipeoutFist>();
+    godot::register_class<godot::Trophy>();
 }

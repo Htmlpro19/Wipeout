@@ -8,13 +8,11 @@ onready var musicPlayer = get_node("VictorySoundPlayer")
 onready var areaNode = get_node("Area")
 var start = 0
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	areaNode.connect("body_entered" , self, "_area_entered") 
-	areaNode.connect("body_exited", self, "_area_exited")
 
-func _area_entered(object):   
+func _area_entered():   
 	print("Collision detected")
 	if(start == 1):
 		musicPlayer.play()

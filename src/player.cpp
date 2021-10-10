@@ -32,22 +32,18 @@ void Player::_physics_process(float delta) {
 	// Detects forward movement
 	if (input->is_action_pressed("move_forwards")) {
 		move_vec = Vector3(0, 0, -1 * MOVE_SPEED);
-		Godot::print("Moving forwards");
 	}
 	// Detects backward movement
 	if (input->is_action_pressed("move_backwards")) {
 		move_vec = Vector3(0, 0, 1 * MOVE_SPEED);
-		Godot::print("Moving backwards");
 	}
 	// Detects right movement
 	if (input->is_action_pressed("move_right")) {
 		move_vec = Vector3(1 * MOVE_SPEED, 0, 0);
-		Godot::print("Moving right");
 	}
 	// Detects left movement
 	if (input->is_action_pressed("move_left")) {
 		move_vec = Vector3(-1 * MOVE_SPEED, 0, 0);
-		Godot::print("Moving left");
 	}
 
 	// Assigns the vertical velocity from last fram
@@ -118,7 +114,7 @@ void Player::_input(Variant event) {
 
 	if (input) {
 		// Handles verical camera rotation
-		cam_base->rotate_x((input->get_relative()).y * V_LOOK_SENS);
+		cam_base->rotate_x((input->get_relative()).y * -V_LOOK_SENS);
 		if ((cam_base->get_rotation_degrees()).x < -60) {
 			Vector3 new_rotation = Vector3(-60, (cam_base->get_rotation_degrees()).y, (cam_base->get_rotation_degrees()).z);
 			cam_base->set_rotation_degrees(new_rotation);
@@ -129,7 +125,7 @@ void Player::_input(Variant event) {
 		}
 
 		// Handle horizontal camera movement
-		cam_base->rotate_y((input->get_relative()).x * H_LOOK_SENS);
+		cam_base->rotate_y((input->get_relative()).x * -H_LOOK_SENS);
 		if ((cam_base->get_rotation_degrees()).y < -90) {
 			Vector3 new_rotation = Vector3((cam_base->get_rotation_degrees()).x, -90, (cam_base->get_rotation_degrees()).z);
 			cam_base->set_rotation_degrees(new_rotation);
