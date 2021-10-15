@@ -1,0 +1,188 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Kevin MacLeod _ B-Roll [ska version].mp3" type="AudioStream" id=2]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=3]
+[ext_resource path="res://WipeoutFist.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WipeoutBall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Trophy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Water.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bin/SpinningBlock.gdns" type="Script" id=8]
+[ext_resource path="res://bin/Trophy.gdns" type="Script" id=9]
+[ext_resource path="res://bin/WipeoutFist.gdns" type="Script" id=10]
+[ext_resource path="res://VICTORY SOUND EFFECT (2).mp3" type="AudioStream" id=11]
+[ext_resource path="res://Rails.tscn" type="PackedScene" id=12]
+[ext_resource path="res://bin/Player.gdns" type="Script" id=13]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+
+[node name="World" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.848224, -0.341152, 0.405131, 0, 0.764921, 0.644124, -0.529638, -0.546361, 0.648825, 0, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.14529, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -42.945 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance6/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -79.496 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance8/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -90.5101 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance9/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -99.8138 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance11/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance13" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -108.981 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance13/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance12" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 0.413936, 0, 1.54002, -99.8138 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance12/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="."]
+transform = Transform( 0.311909, 0, 0, 0, 0.348295, 0, 0, 0, 3.99007, 0, 0.416867, -90.5101 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+script = ExtResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance10/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="."]
+transform = Transform( 0.730702, 0, 0, 0, 1.12448, 0, 0, 0, 12.4445, 0, -1.08602, -60.5302 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance7/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="WipeoutBall" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -6.99922 )
+
+[node name="WipeoutBall2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -11.8876 )
+
+[node name="WipeoutBall3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -16.1778 )
+
+[node name="WipeoutBall4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -21.2076 )
+
+[node name="WipeoutBall5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -25.7327 )
+
+[node name="WipeoutBall6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -30.455 )
+
+[node name="WipeoutBall7" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -35.729 )
+
+[node name="WipeoutFist" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -51.8768 )
+script = ExtResource( 10 )
+
+[node name="WipeoutFist2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -56.6505 )
+
+[node name="WipeoutFist3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -61.8359 )
+script = ExtResource( 10 )
+
+[node name="WipeoutFist4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -66.3616 )
+
+[node name="WipeoutFist5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -71.2503 )
+script = ExtResource( 10 )
+
+[node name="Trophy" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -109.366 )
+script = ExtResource( 9 )
+
+[node name="VictorySoundPlayer" type="AudioStreamPlayer" parent="Trophy"]
+stream = ExtResource( 11 )
+
+[node name="Water" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20109, -59.3129 )
+
+[node name="Rails" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.14076, -3.2387, 0.706464, 0 )
+
+[node name="Rails2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.14076, 3.21661, 0.706464, 0 )
+
+[node name="Rails3" parent="." instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -3.14076, 0, 1, 0, 1, 0, -1.37287e-07, -0.0505012, 0.706464, 3.05743 )
