@@ -3,6 +3,7 @@
 #include "spinning_block.h"
 #include "wipeout_fist.h"
 #include "trophy.h"
+#include "audio_player.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
@@ -19,4 +20,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::SpinningBlock>();
     godot::register_class<godot::WipeoutFist>();
     godot::register_class<godot::Trophy>();
+    godot::register_class<godot::AudioPlayer>();
 }

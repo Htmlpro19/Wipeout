@@ -31,20 +31,32 @@ void Player::_physics_process(float delta) {
 
 	// Detects forward movement
 	if (input->is_action_pressed("move_forwards")) {
-		move_vec = Vector3(0, 0, -1 * MOVE_SPEED);
+		move_vec += Vector3(0, 0, -1);
 	}
 	// Detects backward movement
 	if (input->is_action_pressed("move_backwards")) {
-		move_vec = Vector3(0, 0, 1 * MOVE_SPEED);
+		move_vec += Vector3(0, 0, 1);
 	}
 	// Detects right movement
 	if (input->is_action_pressed("move_right")) {
-		move_vec = Vector3(1 * MOVE_SPEED, 0, 0);
+		move_vec += Vector3(1, 0, 0);
 	}
 	// Detects left movement
 	if (input->is_action_pressed("move_left")) {
-		move_vec = Vector3(-1 * MOVE_SPEED, 0, 0);
+		move_vec += Vector3(-1, 0, 0);
 	}
+
+	// Normalize movement vector
+	move_vec.normalize();
+
+	// Sets movement speed
+	move_vec *= MOVE_SPEED;
+
+	// Rotates the movement vector relative to camera and player rotation
+	move_vec = move_vec.rotated(Vector3(0, 1, 0), get_rotation().y);
+
+
+
 
 	// Assigns the vertical velocity from last fram
 	move_vec.y = vertical_velocity;
@@ -124,16 +136,8 @@ void Player::_input(Variant event) {
 			cam_base->set_rotation_degrees(new_rotation);
 		}
 
-		// Handle horizontal camera movement
-		cam_base->rotate_y((input->get_relative()).x * -H_LOOK_SENS);
-		if ((cam_base->get_rotation_degrees()).y < -90) {
-			Vector3 new_rotation = Vector3((cam_base->get_rotation_degrees()).x, -90, (cam_base->get_rotation_degrees()).z);
-			cam_base->set_rotation_degrees(new_rotation);
-		}
-		else if ((cam_base->get_rotation_degrees()).y > 90) {
-			Vector3 new_rotation = Vector3((cam_base->get_rotation_degrees()).x, 90, (cam_base->get_rotation_degrees()).z);
-			cam_base->set_rotation_degrees(new_rotation);
-		}
+		// Handle horizontal camera and player rotation
+		this->rotate_y((input->get_relative()).x * -H_LOOK_SENS);
 
 		// Handles weird camera rotation
 		Vector3 new_rotation = Vector3((cam_base->get_rotation_degrees()).x, (cam_base->get_rotation_degrees()).y, 0);
