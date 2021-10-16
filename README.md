@@ -1,5 +1,5 @@
 # Game Technology Project 1
-Link for the Final Report and the User Manual https://docs.google.com/document/d/1F4wgn5gIUVkUcZYb0yULdNUmiNyzciHj47iHdTc-oYA/edit?usp=sharing
+Link for the milestone documentation https://docs.google.com/document/d/1t8HorXOx-rEY9dzhB3Me5K5IS5Ado_wxFXGeH4AB7Bo/edit
 ## Building the Project
 After checking out the project with either
 ```
