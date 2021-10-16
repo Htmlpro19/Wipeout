@@ -3,11 +3,11 @@ Link for the milestone documentation https://docs.google.com/document/d/1t8HorXO
 ## Building the Project
 After checking out the project with either
 ```
-git clone git@gitlab.com:daniamir/gametechproject1.git
+git clone git@gitlab.com:daniamir/gametechproject3.git
 ```
 or 
 ```
-git clone https://gitlab.com/daniamir/gametechproject1.git
+git clone https://gitlab.com/daniamir/gametechproject3.git
 ```
 you should find all the necessary files to build the program. First we must build the CPP bindings.<br>
 Open your terminal of choice, and navigate to your project directory. Use the following commands to build the bindings:
