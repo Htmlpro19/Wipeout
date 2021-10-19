@@ -5,3 +5,5 @@
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_sun_amount = 1.0
+fog_depth_curve = 1.07177

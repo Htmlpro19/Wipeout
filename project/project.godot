@@ -11,8 +11,14 @@ config_version=4
 [application]
 
 config/name="Game_Tech_Project_1"
-run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://main_scenes/World.tscn"
+config/icon="res://images_and_materials/icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/vsync/use_vsync=false
 
 [input]
 
@@ -48,4 +54,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.6, 0.921569, 0.929412, 1 )
 environment/default_environment="res://default_env.tres"

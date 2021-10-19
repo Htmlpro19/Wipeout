@@ -1,8 +1,0 @@
-[gd_scene format=2]
-
-[node name="WipeoutPlatform" type="Spatial"]
-
-[node name="CSGBox" type="CSGBox" parent="."]
-width = 4.32898
-height = 0.002
-depth = 4.61822

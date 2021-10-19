@@ -1,0 +1,214 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://bin/Trophy.gdns" type="Script" id=1]
+[ext_resource path="res://bin/WipeoutFist.gdns" type="Script" id=2]
+[ext_resource path="res://bin/Player.gdns" type="Script" id=3]
+[ext_resource path="res://bin/SpinningBlock.gdns" type="Script" id=4]
+[ext_resource path="res://sub_scenes/Trophy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sub_scenes/Water.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sub_scenes/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sub_scenes/Rails.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sub_scenes/WipeoutBall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sub_scenes/WipeoutFist.tscn" type="PackedScene" id=10]
+[ext_resource path="res://bin/AudioPlayer.gdns" type="Script" id=11]
+[ext_resource path="res://music_and_sound/Kevin MacLeod _ B-Roll [ska version].mp3" type="AudioStream" id=12]
+[ext_resource path="res://music_and_sound/VICTORY SOUND EFFECT (2).mp3" type="AudioStream" id=13]
+[ext_resource path="res://images_and_materials/water_3d_material.tres" type="Material" id=14]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+
+[sub_resource type="PlaneMesh" id=6]
+material = ExtResource( 14 )
+size = Vector2( 32, 32 )
+subdivide_width = 640
+subdivide_depth = 640
+
+[sub_resource type="ProceduralSky" id=7]
+sky_curve = 0.199722
+ground_bottom_color = Color( 0.411765, 0.666667, 0.921569, 1 )
+ground_horizon_color = Color( 0.898039, 0.964706, 0.972549, 1 )
+
+[sub_resource type="Environment" id=8]
+background_mode = 2
+background_sky = SubResource( 7 )
+adjustment_enabled = true
+
+[node name="World" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.161428, 18.3514, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 3 )
+
+[node name="StartingPlatform" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.14529, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="StartingPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StartingPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="CheckpointPlatform1" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -42.945 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="CheckpointPlatform1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CheckpointPlatform1/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="CheckpointPlatform2" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -79.496 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="CheckpointPlatform2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CheckpointPlatform2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -90.5101 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="WallPlatform" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -99.8138 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="WallPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="EndingPlatform" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -108.981 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="EndingPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="EndingPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Wall" type="MeshInstance" parent="."]
+transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 0.413936, 0, 1.54002, -99.8138 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Wall"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlock" type="MeshInstance" parent="."]
+transform = Transform( 0.311909, 0, 0, 0, 0.348295, 0, 0, 0, 3.99007, 0, 0.416867, -90.5101 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlock"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlock/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="PunchingBlocksPlatform" type="MeshInstance" parent="."]
+transform = Transform( 0.730702, 0, 0, 0, 1.12448, 0, 0, 0, 12.4445, 0, -1.08602, -60.5302 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="PunchingBlocksPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PunchingBlocksPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+script = ExtResource( 11 )
+
+[node name="WipeoutBall" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -6.99922 )
+
+[node name="WipeoutBall2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -11.8876 )
+
+[node name="WipeoutBall3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -16.1778 )
+
+[node name="WipeoutBall4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -21.2076 )
+
+[node name="WipeoutBall5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -25.7327 )
+
+[node name="WipeoutBall6" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -30.455 )
+
+[node name="WipeoutBall7" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -35.729 )
+
+[node name="WipeoutFist" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -51.8768 )
+script = ExtResource( 2 )
+
+[node name="WipeoutFist2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -56.6505 )
+
+[node name="WipeoutFist3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -61.8359 )
+script = ExtResource( 2 )
+
+[node name="WipeoutFist4" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -66.3616 )
+
+[node name="WipeoutFist5" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -71.2503 )
+script = ExtResource( 2 )
+
+[node name="Trophy" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -109.366 )
+script = ExtResource( 1 )
+
+[node name="VictorySoundPlayer" type="AudioStreamPlayer" parent="Trophy"]
+stream = ExtResource( 13 )
+
+[node name="WaterBottom" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.999982, -0.00499259, 0.00346268, 0.00498471, 0.999985, 0.0022787, -0.00347401, -0.00226139, 0.999991, 0, -5.16864, -59.3129 )
+
+[node name="InvisibleRail1" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.14076, -3.2387, 0.706464, 0 )
+
+[node name="InvisibleRail2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3.14076, 3.21661, 0.706464, 0 )
+
+[node name="InvisibleRail3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -3.14076, 0, 1, 0, 1, 0, -1.37287e-07, -0.0505012, 0.706464, 3.05743 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 33.345, 0, 0, 0, 1, 0, 0, 0, 31.2632, 0.16041, -0.759355, -56.8702 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_priority = 1
+environment = SubResource( 8 )

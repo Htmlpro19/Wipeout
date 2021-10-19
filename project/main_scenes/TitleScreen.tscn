@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://images_and_materials/title.png" type="Texture" id=2]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 115.0
+margin_top = 73.0
+margin_right = 1165.0
+margin_bottom = 223.0
+rect_pivot_offset = Vector2( -75, 112 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 540.0
+margin_top = 305.0
+margin_right = 740.0
+margin_bottom = 385.0
+text = "Singleplayer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 540.0
+margin_top = 461.0
+margin_right = 740.0
+margin_bottom = 541.0
+text = "Multiplayer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
