@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\project",
+    "\\project\\bin",
     "\\src"
   ],
-  "SelectedNode": "\\src\\trophy.h",
+  "SelectedNode": "\\project\\bin\\MultiplayerScreen.gdns",
   "PreviewInSolutionExplorer": false
 }

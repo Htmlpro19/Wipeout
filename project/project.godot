@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Game_Tech_Project_1"
-run/main_scene="res://main_scenes/World.tscn"
+run/main_scene="res://main_scenes/TitleScreen.tscn"
 config/icon="res://images_and_materials/icon.png"
 
 [display]
