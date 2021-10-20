@@ -61,7 +61,7 @@ void Player::_physics_process(float delta) {
 	move_vec.y = vertical_velocity;
 
 	// Moves the player parallel to the platforms
-	move_and_slide(move_vec, Vector3(0, 1, 0));
+	move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
 
 	// Checks if player is on floor or if just jumped
 	bool is_grounded = is_on_floor();

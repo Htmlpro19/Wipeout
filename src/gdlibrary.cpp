@@ -9,6 +9,7 @@
 #include "title_screen.h"
 #include "multiplayer_screen.h"
 #include "water_bottom.h"
+#include "wipeout_fist_opposite.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
@@ -31,4 +32,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::TitleScreen>();
     godot::register_class<godot::MultiplayerScreen>();
     godot::register_class<godot::WaterBottom>();
+    godot::register_class<godot::WipeoutFistOpposite>();
 }
