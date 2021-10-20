@@ -19,11 +19,14 @@ margin_bottom = 209.0
 texture = ExtResource( 1 )
 
 [node name="SingleplayerButton" type="Button" parent="."]
-margin_left = 511.0
-margin_top = 282.0
-margin_right = 804.0
-margin_bottom = 395.0
+margin_left = 513.0
+margin_top = 279.0
+margin_right = 806.0
+margin_bottom = 392.0
 text = "Singleplayer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MultiplayerButton" type="Button" parent="."]
 margin_left = 510.0
