@@ -1,6 +1,8 @@
 #include <Godot.hpp>
 #include "player.h"
-#include "spinning_block.h"
+#include "spinning_block_1.h"
+#include "spinning_block_2.h"
+#include "spinning_block_3.h"
 #include "wipeout_fist.h"
 #include "trophy.h"
 #include "audio_player.h"
@@ -20,7 +22,9 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::Godot::nativescript_init(handle);
 
     godot::register_class<godot::Player>();
-    godot::register_class<godot::SpinningBlock>();
+    godot::register_class<godot::SpinningBlock1>();
+    godot::register_class<godot::SpinningBlock2>();
+    godot::register_class<godot::SpinningBlock3>();
     godot::register_class<godot::WipeoutFist>();
     godot::register_class<godot::Trophy>();
     godot::register_class<godot::AudioPlayer>();

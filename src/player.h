@@ -5,6 +5,7 @@
 #include <Godot.hpp>
 #include <KinematicBody.hpp>
 #include <Input.hpp>
+#include <Area.hpp>
 #include <Vector3.hpp>
 #include <Animation.hpp>
 #include <AnimationPlayer.hpp>
@@ -36,6 +37,11 @@ namespace godot {
 
 		// Pointer to input functionality
 		Input* input;
+		
+		Node* area_node;
+		Area* area;
+
+		int can_bounce = 0;
 
 	public:
 		// Function required by godot to regester new methods and properties
@@ -61,6 +67,11 @@ namespace godot {
 
 		// Function used for handling camera input
 		void _input(Variant event);
+
+		void _ready();
+
+		// Function for bouncing on balls
+		void _area_entered_ball();
 	};
 }
 

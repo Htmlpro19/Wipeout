@@ -7,6 +7,8 @@ void Player::_register_methods() {
 	register_method("_physics_process", &Player::_physics_process);
 	register_method("_play_anim", &Player::_play_anim);
 	register_method("_input", &Player::_input);
+	register_method("_ready", &Player::_ready);
+	register_method("_area_entered_ball", &Player::_area_entered_ball);
 }
 
 Player::Player() {
@@ -54,9 +56,6 @@ void Player::_physics_process(float delta) {
 
 	// Rotates the movement vector relative to camera and player rotation
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), get_rotation().y);
-
-
-
 
 	// Assigns the vertical velocity from last fram
 	move_vec.y = vertical_velocity;
@@ -143,4 +142,45 @@ void Player::_input(Variant event) {
 		Vector3 new_rotation = Vector3((cam_base->get_rotation_degrees()).x, (cam_base->get_rotation_degrees()).y, 0);
 		cam_base->set_rotation_degrees(new_rotation);
 	}
+}
+
+void Player::_ready() {
+	area_node = get_parent()->get_node("WipeoutBall/Area");
+	if (area_node) {
+		area = godot::Object::cast_to<Area>(area_node);
+		area->connect("body_entered", this, "_area_entered_ball");
+	}
+
+	area_node = get_parent()->get_node("WipeoutBall2/Area");
+	if (area_node) {
+		area = godot::Object::cast_to<Area>(area_node);
+		area->connect("body_entered", this, "_area_entered_ball");
+	}
+
+	area_node = get_parent()->get_node("WipeoutBall3/Area");
+	if (area_node) {
+		area = godot::Object::cast_to<Area>(area_node);
+		area->connect("body_entered", this, "_area_entered_ball");
+	}
+
+	area_node = get_parent()->get_node("WipeoutBall4/Area");
+	if (area_node) {
+		area = godot::Object::cast_to<Area>(area_node);
+		area->connect("body_entered", this, "_area_entered_ball");
+	}
+
+	area_node = get_parent()->get_node("WipeoutBall5/Area");
+	if (area_node) {
+		area = godot::Object::cast_to<Area>(area_node);
+		area->connect("body_entered", this, "_area_entered_ball");
+	}
+}
+
+void Player::_area_entered_ball() {
+	if (can_bounce >= 5 ) {
+		Godot::print("Bounce");
+		vertical_velocity = JUMP_FORCE * 1.5;
+	}
+
+	can_bounce += 1;
 }

@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://bin/Trophy.gdns" type="Script" id=1]
 [ext_resource path="res://bin/WipeoutFist.gdns" type="Script" id=2]
 [ext_resource path="res://bin/Player.gdns" type="Script" id=3]
-[ext_resource path="res://bin/SpinningBlock.gdns" type="Script" id=4]
+[ext_resource path="res://bin/SpinningBlock1.gdns" type="Script" id=4]
 [ext_resource path="res://sub_scenes/Trophy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sub_scenes/Water.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sub_scenes/Player.tscn" type="PackedScene" id=7]
@@ -15,6 +15,9 @@
 [ext_resource path="res://music_and_sound/VICTORY SOUND EFFECT (2).mp3" type="AudioStream" id=13]
 [ext_resource path="res://images_and_materials/water_3d_material.tres" type="Material" id=14]
 [ext_resource path="res://bin/WaterBottom.gdns" type="Script" id=15]
+[ext_resource path="res://bin/WipeoutBall.gdns" type="Script" id=16]
+[ext_resource path="res://bin/SpinningBlock2.gdns" type="Script" id=17]
+[ext_resource path="res://bin/SpinningBlock3.gdns" type="Script" id=18]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -52,44 +55,208 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -
 [node name="Player" parent="." instance=ExtResource( 7 )]
 script = ExtResource( 3 )
 
-[node name="StartingPlatform" type="MeshInstance" parent="."]
+[node name="FirstObstCPPlat" type="MeshInstance" parent="."]
 transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.14529, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="StartingPlatform"]
+[node name="StaticBody" type="StaticBody" parent="FirstObstCPPlat"]
 
-[node name="CollisionShape" type="CollisionShape" parent="StartingPlatform/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="FirstObstCPPlat/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="CheckpointPlatform1" type="MeshInstance" parent="."]
-transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -42.945 )
+[node name="FirstObstPlat1" type="MeshInstance" parent="."]
+transform = Transform( 6.56504, 0, 0, 0, 0.318705, 0, 0, 0, 2.45745, 0, 0.649729, -8.02168 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="CheckpointPlatform1"]
+[node name="StaticBody" type="StaticBody" parent="FirstObstPlat1"]
 
-[node name="CollisionShape" type="CollisionShape" parent="CheckpointPlatform1/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="FirstObstPlat1/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="CheckpointPlatform2" type="MeshInstance" parent="."]
-transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -79.496 )
+[node name="FirstObstPlat2" type="MeshInstance" parent="."]
+transform = Transform( 4.75266, 0, 0, 0, 0.318705, 0, 0, 0, 2.44454, 0, 2.85703, -14.4237 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="CheckpointPlatform2"]
+[node name="StaticBody" type="StaticBody" parent="FirstObstPlat2"]
 
-[node name="CollisionShape" type="CollisionShape" parent="CheckpointPlatform2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="FirstObstPlat2/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="SpinningBlockPlatform" type="MeshInstance" parent="."]
-transform = Transform( 3.14087, 0, 0, 0, 1.12448, 0, 0, 0, 3.14087, 0, -1.145, -90.5101 )
+[node name="FirstObstPlat3" type="MeshInstance" parent="."]
+transform = Transform( 2.43676, 0, 0, 0, 0.318705, 0, 0, 0, 2.48533, 0, 7.1161, -20.3133 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform"]
+[node name="StaticBody" type="StaticBody" parent="FirstObstPlat3"]
 
-[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="FirstObstPlat3/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="WipeoutBall" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.7408, 0, 0, 0, 1.7408, 0, 0, 0, 1.7408, -0.0105152, 5.86938, -26.5633 )
+script = ExtResource( 16 )
+
+[node name="SecondObstCPPlat" type="MeshInstance" parent="."]
+transform = Transform( 6.23259, 0, 0, 0, 0.574031, 0, 0, 0, 3.14087, 0, 16.2121, -33.3909 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SecondObstCPPlat"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SecondObstCPPlat/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="WipeoutBall2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 3.33876, 0, 0, 0, 3.33876, 0, 0, 0, 3.33876, 0.621443, 12.7332, -44.9011 )
+
+[node name="WipeoutBall3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 3.33876, 0, 0, 0, 3.33876, 0, 0, 0, 3.33876, 8.2111, 16.9674, -58.3356 )
+
+[node name="WipeoutBall4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 3.33876, 0, 0, 0, 3.33876, 0, 0, 0, 3.33876, -4.44143, 22.5806, -66.9438 )
+
+[node name="WipeoutBall5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 3.33876, 0, 0, 0, 3.33876, 0, 0, 0, 3.33876, 1.63857, 29.5982, -83.6366 )
+
+[node name="ThirdObstCPPlat" type="MeshInstance" parent="."]
+transform = Transform( 6.23259, 0, 0, 0, 0.574031, 0, 0, 0, 3.14087, 1.28216, 45.8016, -95.4871 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="ThirdObstCPPlat"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ThirdObstCPPlat/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="PunchingBlocksPlatform" type="MeshInstance" parent="."]
+transform = Transform( 0.730702, 0, 0, 0, 1.12448, 0, 0, 0, 12.4445, 1.35123, 45.2558, -110.261 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="PunchingBlocksPlatform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PunchingBlocksPlatform/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="WipeoutFist" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 3.26923, 0, 0, 0, 1.58472, 3.46243, 50.0306, -101.935 )
+script = ExtResource( 2 )
+
+[node name="WipeoutFist2" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -1.38541e-07, 0, 3.26923, 0, 8.74228e-08, 0, -1.58472, -0.91283, 50.0306, -106.561 )
+
+[node name="WipeoutFist3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 3.26923, 0, 0, 0, 1.58472, 3.46243, 50.0306, -111.726 )
+script = ExtResource( 2 )
+
+[node name="WipeoutFist4" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -1.38541e-07, 0, 3.26923, 0, 8.74228e-08, 0, -1.58472, -0.91283, 50.0306, -116.188 )
+
+[node name="WipeoutFist5" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 3.26923, 0, 0, 0, 1.58472, 3.46243, 50.0306, -120.478 )
+script = ExtResource( 2 )
+
+[node name="FourthObstCPPlat" type="MeshInstance" parent="."]
+transform = Transform( 6.23259, 0, 0, 0, 0.574031, 0, 0, 0, 3.14087, 1.28216, 45.8016, -125.704 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="FourthObstCPPlat"]
+
+[node name="CollisionShape" type="CollisionShape" parent="FourthObstCPPlat/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform1" type="MeshInstance" parent="."]
+transform = Transform( 1.62112, 0, 0, 0, 1.12448, 0, 0, 0, 7.28866, 1.35123, 45.2558, -135.826 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform1/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform2" type="MeshInstance" parent="."]
+transform = Transform( -6.9085e-08, 0, 15.7651, 0, 1.12448, 0, -1.49155, 0, -6.50341e-07, 1.35123, 45.2558, -143.99 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform3" type="MeshInstance" parent="."]
+transform = Transform( 1.1087, 0, 11.1476, 0, 1.12448, 0, -1.1087, 0, 11.1476, -24.4564, 45.2612, -154.852 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform3/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform4" type="MeshInstance" parent="."]
+transform = Transform( 1.58042, 0, 0, 0, 1.12448, 0, 0, 0, 15.7651, -35.0353, 45.2612, -180.778 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform4/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform5" type="MeshInstance" parent="."]
+transform = Transform( 1.14718, 0, -11.1476, 0, 1.12448, 0, 1.14718, 0, 11.1476, -24.2555, 45.2612, -206.473 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform5/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform6" type="MeshInstance" parent="."]
+transform = Transform( -6.9085e-08, 0, 15.7651, 0, 1.12448, 0, -1.60351, 0, -6.99155e-07, 1.47173, 45.2558, -217.118 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform6/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform7" type="MeshInstance" parent="."]
+transform = Transform( 1.06505, 0, 11.1476, 0, 1.12448, 0, -1.06505, 0, 11.1476, 27.3069, 45.2612, -206.492 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform7/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform8" type="MeshInstance" parent="."]
+transform = Transform( 1.55074, 0, 0, 0, 1.12448, 0, 0, 0, 15.7651, 37.9571, 45.2612, -180.69 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform8/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlockPlatform9" type="MeshInstance" parent="."]
+transform = Transform( 1.13285, 0, -11.1476, 0, 1.12448, 0, 1.13285, 0, 11.1476, 27.1121, 45.2612, -154.982 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlockPlatform9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlockPlatform9/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="WallPlatform" type="MeshInstance" parent="."]
@@ -122,69 +289,42 @@ material/0 = SubResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="Wall/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="SpinningBlock" type="MeshInstance" parent="."]
-transform = Transform( 0.311909, 0, 0, 0, 0.348295, 0, 0, 0, 3.99007, 0, 0.416867, -90.5101 )
+[node name="SpinningBlock1" type="MeshInstance" parent="."]
+transform = Transform( 0.503175, 0, 0, 0, 0.348295, 0, 0, 0, 38.6895, 1.38292, 46.7888, -180.497 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 5 )
 script = ExtResource( 4 )
 
-[node name="StaticBody" type="StaticBody" parent="SpinningBlock"]
+[node name="StaticBody" type="StaticBody" parent="SpinningBlock1"]
 
-[node name="CollisionShape" type="CollisionShape" parent="SpinningBlock/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlock1/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="PunchingBlocksPlatform" type="MeshInstance" parent="."]
-transform = Transform( 0.730702, 0, 0, 0, 1.12448, 0, 0, 0, 12.4445, 0, -1.08602, -60.5302 )
+[node name="SpinningBlock2" type="MeshInstance" parent="."]
+transform = Transform( -2.19945e-08, 0, 38.6895, 0, 0.348295, 0, -0.503175, 0, -1.69117e-06, 1.38292, 47.5358, -180.497 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = SubResource( 5 )
+script = ExtResource( 17 )
 
-[node name="StaticBody" type="StaticBody" parent="PunchingBlocksPlatform"]
+[node name="StaticBody" type="StaticBody" parent="SpinningBlock2"]
 
-[node name="CollisionShape" type="CollisionShape" parent="PunchingBlocksPlatform/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlock2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SpinningBlock3" type="MeshInstance" parent="."]
+transform = Transform( 0.355799, 0, 27.3576, 0, 0.348295, 0, -0.355799, 0, 27.3576, 1.38292, 48.2772, -180.497 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+script = ExtResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="SpinningBlock3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SpinningBlock3/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 script = ExtResource( 11 )
-
-[node name="WipeoutBall" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -6.99922 )
-
-[node name="WipeoutBall2" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -11.8876 )
-
-[node name="WipeoutBall3" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -16.1778 )
-
-[node name="WipeoutBall4" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -21.2076 )
-
-[node name="WipeoutBall5" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -25.7327 )
-
-[node name="WipeoutBall6" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -30.455 )
-
-[node name="WipeoutBall7" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08015, -35.729 )
-
-[node name="WipeoutFist" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -51.8768 )
-script = ExtResource( 2 )
-
-[node name="WipeoutFist2" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -56.6505 )
-
-[node name="WipeoutFist3" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -61.8359 )
-script = ExtResource( 2 )
-
-[node name="WipeoutFist4" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -66.3616 )
-
-[node name="WipeoutFist5" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1112, 0.984634, -71.2503 )
-script = ExtResource( 2 )
 
 [node name="Trophy" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -109.366 )
