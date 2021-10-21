@@ -14,6 +14,10 @@ config/name="Game_Tech_Project_1"
 run/main_scene="res://main_scenes/TitleScreen.tscn"
 config/icon="res://images_and_materials/icon.png"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [display]
 
 window/size/width=1280

@@ -9,6 +9,7 @@ void Player::_register_methods() {
 	register_method("_input", &Player::_input);
 	register_method("_ready", &Player::_ready);
 	register_method("_area_entered_ball", &Player::_area_entered_ball);
+	register_method("_set_position", &Player::_set_position, GODOT_METHOD_RPC_MODE_REMOTE);
 }
 
 Player::Player() {
@@ -61,7 +62,16 @@ void Player::_physics_process(float delta) {
 	move_vec.y = vertical_velocity;
 
 	// Moves the player parallel to the platforms
-	move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
+	if (move_vec != Vector3())
+	{
+		if (!is_network_master())
+		{
+			Godot::print("Player: " + player->get_name() + "is network master");
+			move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
+			rpc_unreliable("_set_position", player->get_transform().origin);
+		}
+
+	}
 
 	// Checks if player is on floor or if just jumped
 	bool is_grounded = is_on_floor();
@@ -174,6 +184,19 @@ void Player::_ready() {
 		area = godot::Object::cast_to<Area>(area_node);
 		area->connect("body_entered", this, "_area_entered_ball");
 	}
+
+	Node* camNode = get_node("CamBase");
+	playerNode = camNode->get_parent();
+
+	if (!playerNode)
+	{
+		Godot::print("PLAYER NODE IS NULL");
+	}
+	player = godot::Object::cast_to<KinematicBody>(playerNode);
+	if (!player)
+	{
+		Godot::print("PLAYER IS NULL");
+	}
 }
 
 void Player::_area_entered_ball() {
@@ -183,4 +206,17 @@ void Player::_area_entered_ball() {
 	}
 
 	can_bounce += 1;
+}
+
+void Player::_set_position(Vector3 pos)
+{
+	if (player)
+	{
+		player->set_translation(pos);
+	}
+	else
+	{
+		Godot::print("ERROR");
+	}
+
 }

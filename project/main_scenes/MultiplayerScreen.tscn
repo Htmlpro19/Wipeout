@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://bin/MultiplayerScreen.gdns" type="Script" id=1]
+[ext_resource path="res://main_scenes/MultiplayerScreen.gd" type="Script" id=1]
 [ext_resource path="res://images_and_materials/Background.png" type="Texture" id=2]
 
 [node name="MultiplayerScreen" type="Control"]
@@ -40,3 +40,6 @@ margin_top = 565.0
 margin_right = 728.0
 margin_bottom = 638.0
 text = "Back"
+
+[connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_JoinButton_pressed"]

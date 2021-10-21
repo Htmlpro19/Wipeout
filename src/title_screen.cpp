@@ -35,7 +35,7 @@ void TitleScreen::_ready() {
 }
 
 void TitleScreen::_on_SingleplayerButton_pressed() {
-	get_tree()->change_scene("res://main_scenes/World.tscn");
+	get_tree()->change_scene("res://main_scenes/WorldSingleplayer.tscn");
 }
 
 void TitleScreen::_on_MultiplayerButton_pressed() {

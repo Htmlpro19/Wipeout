@@ -43,6 +43,10 @@ namespace godot {
 
 		int can_bounce = 0;
 
+		//Reference to this player's node
+		Node* playerNode;
+		KinematicBody* player;
+
 	public:
 		// Function required by godot to regester new methods and properties
 		static void _register_methods();
@@ -72,6 +76,8 @@ namespace godot {
 
 		// Function for bouncing on balls
 		void _area_entered_ball();
+
+		void _set_position(Vector3 pos);
 	};
 }
 

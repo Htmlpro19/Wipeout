@@ -44,3 +44,6 @@ margin_top = 440.0
 margin_right = 963.0
 margin_bottom = 554.0
 text = "Multiplayer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
