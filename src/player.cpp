@@ -220,3 +220,13 @@ void Player::_set_position(Vector3 pos)
 	}
 
 }
+
+/**
+ * 	Set the player's current checkpoint position.
+ * 
+ *  @param pos the position of the new checkpoint at which
+ * 			   the player will respawn upon loss of life. 
+ **/
+void Player::_set_checkpoint(Vector3 pos) {
+	curr_checkpoint = pos;
+}

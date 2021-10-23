@@ -43,6 +43,9 @@ namespace godot {
 
 		int can_bounce = 0;
 
+		// Player's checkpoint value.
+		Vector3 curr_checkpoint;
+
 		//Reference to this player's node
 		Node* playerNode;
 		KinematicBody* player;
@@ -78,6 +81,9 @@ namespace godot {
 		void _area_entered_ball();
 
 		void _set_position(Vector3 pos);
+
+		// Set the player's current checkpoint location.
+		void _set_checkpoint(Vector3 pos);
 	};
 }
 
