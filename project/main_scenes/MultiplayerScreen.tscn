@@ -4,8 +4,6 @@
 [ext_resource path="res://images_and_materials/Background.png" type="Texture" id=2]
 
 [node name="MultiplayerScreen" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,19 +18,22 @@ __meta__ = {
 }
 
 [node name="HostButton" type="Button" parent="."]
-margin_left = 481.0
-margin_top = 92.0
-margin_right = 792.0
-margin_bottom = 244.0
+margin_left = 473.982
+margin_top = 129.417
+margin_right = 784.982
+margin_bottom = 281.417
 rect_pivot_offset = Vector2( -487, -132 )
 text = "Host"
 
 [node name="JoinButton" type="Button" parent="."]
-margin_left = 479.0
-margin_top = 319.0
-margin_right = 790.0
-margin_bottom = 471.0
+margin_left = 482.563
+margin_top = 357.309
+margin_right = 793.563
+margin_bottom = 509.309
 text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackButton" type="Button" parent="."]
 margin_left = 536.0
