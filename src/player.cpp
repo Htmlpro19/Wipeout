@@ -69,9 +69,10 @@ void Player::_physics_process(float delta) {
 			Node* camera_node = get_node("CamBase/Camera");
 			Camera* camera = godot::Object::cast_to<Camera>(camera_node);
 			camera->make_current();
-			move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
 			rpc_unreliable("_set_position", player->get_transform().origin);
 		}
+
+		move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
 	}
 
 	// Checks if player is on floor or if just jumped
