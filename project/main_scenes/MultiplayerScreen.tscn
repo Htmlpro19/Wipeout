@@ -30,6 +30,9 @@ margin_right = 784.982
 margin_bottom = 281.417
 rect_pivot_offset = Vector2( -487, -132 )
 text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="JoinButton" type="Button" parent="."]
 margin_left = 482.563
