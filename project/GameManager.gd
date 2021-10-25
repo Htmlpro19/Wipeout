@@ -3,6 +3,9 @@ extends Node
 # Stores current player name
 var current_player_name
 
+# Stores local player id
+var local_player_id = 1
+
 # Dictionary which contains (playerID : playerName)
 var player_names = {}
 
@@ -45,7 +48,7 @@ func _player_disconnected(player_id):
 	
 remote func _send_player_info(client_id, client_name):
 	player_names[client_id] = client_name
-	rset("player_names", player_names)
+	rpc("_update_player_names", player_names)
 	rpc("_update_waiting_room")
 
 
@@ -76,12 +79,26 @@ func _server_disconnected():
 # Function called when client successfully connects to the server
 func _connected_ok():
 	# Stores clients name with network ID in the dictionary
-	var local_player_id = get_tree().get_network_unique_id()
+	local_player_id = get_tree().get_network_unique_id()
 	
 	# Sends local_player_id and current_player_name to the host
 	rpc_id(1, "_send_player_info", local_player_id, current_player_name)
 	
 	#TEST Print statement
 	print("Successfully connected to server")
-	
+
+# Function for updating player name dictionary across host and clients
+sync func _update_player_names(new_player_names):
+	player_names = new_player_names
+
 # Function for updating the lobby screen
+sync func _update_waiting_room():
+	get_tree().change_scene("res://main_scenes/Lobby.tscn")
+	
+# Function for setting up game start
+func _setup_game_start():
+	rpc("_game_start")
+	
+# Function for starting the game
+sync func _game_start():
+	get_tree().change_scene("res://main_scenes/WorldMultiplayer.tscn")

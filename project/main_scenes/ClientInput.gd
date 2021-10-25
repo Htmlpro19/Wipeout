@@ -12,4 +12,4 @@ func _on_Button_pressed():
 	GameManager._client_start();
 	
 	# Change the scene to the lobby
-	get_tree().change_scene("res://main_scenes/Lobby.tscn")
+	#get_tree().change_scene("res://main_scenes/Lobby.tscn")
