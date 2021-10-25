@@ -4,8 +4,8 @@ extends Spatial
 onready var player1pos = $Player1Start
 onready var player2pos = $Player2Start
 
-var player1name
-var player2name
+var player1name = "Player1"
+var player2name = "Player2"
 
 var player1id
 var player2id
@@ -14,11 +14,12 @@ var player2id
 func _ready():
 	for i in (GameManager.player_names).keys():
 		if (i == 1):
-			player1name = GameManager.player_names[i]
 			player1id = i
 		else:
-			player2name = GameManager.player_names[i]
 			player2id = i
+			
+	print("Player 1 ID: " + str(player1id))
+	print("Player 2 ID: " + str(player2id))
 	
 	var player1 = preload("res://sub_scenes/Player.tscn").instance()
 	player1.set_name(player1name)

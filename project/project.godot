@@ -11,12 +11,16 @@ config_version=4
 [application]
 
 config/name="Game_Tech_Project_1"
-run/main_scene="res://main_scenes/MultiplayerScreen.tscn"
+run/main_scene="res://main_scenes/TitleScreen.tscn"
 config/icon="res://images_and_materials/icon.png"
 
 [autoload]
 
 GameManager="*res://GameManager.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 

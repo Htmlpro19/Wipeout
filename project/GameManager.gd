@@ -94,11 +94,9 @@ sync func _update_player_names(new_player_names):
 # Function for updating the lobby screen
 sync func _update_waiting_room():
 	get_tree().change_scene("res://main_scenes/Lobby.tscn")
-	
-# Function for setting up game start
+
 func _setup_game_start():
 	rpc("_game_start")
-	
-# Function for starting the game
+
 sync func _game_start():
 	get_tree().change_scene("res://main_scenes/WorldMultiplayer.tscn")

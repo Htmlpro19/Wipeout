@@ -64,13 +64,14 @@ void Player::_physics_process(float delta) {
 	// Moves the player parallel to the platforms
 	if (move_vec != Vector3())
 	{
-		if (!is_network_master())
+		if (is_network_master())
 		{
-			Godot::print("Player: " + player->get_name() + "is network master");
+			Node* camera_node = get_node("CamBase/Camera");
+			Camera* camera = godot::Object::cast_to<Camera>(camera_node);
+			camera->make_current();
 			move_and_slide(move_vec, Vector3(0, 1, 0), false, 4, 0.0, true);
 			rpc_unreliable("_set_position", player->get_transform().origin);
 		}
-
 	}
 
 	// Checks if player is on floor or if just jumped
