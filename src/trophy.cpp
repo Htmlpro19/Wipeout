@@ -1,4 +1,5 @@
 #include "trophy.h"
+#include <SceneTree.hpp>
 
 using namespace godot;
 
@@ -41,6 +42,8 @@ void Trophy::_area_entered() {
 		{
 			audioPlayer->play();
 		}
+
+		get_tree()->change_scene("res://main_scenes/GameoverScreen.tscn");
 	}
 
 	start += 1;
