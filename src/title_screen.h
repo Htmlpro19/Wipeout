@@ -1,24 +1,25 @@
 #ifndef TITLE_SCREEN_H
 #define TITLE_SCREEN_H
 
-// All files needed for title screen class
-#include <Godot.hpp>
-#include <Control.hpp>
-#include <Node.hpp>
 #include <Button.hpp>
+#include <Control.hpp>
+#include <Godot.hpp>
+#include <Node.hpp>
 #include <SceneTree.hpp>
 
 // Title screen class defined in the godot namespace
 namespace godot {
 	// Definition for TitleScreen class which extends the Control class
 	class TitleScreen : public Control {
-		// Macro which identifies the title screen class and which class it extends to godot
 		GODOT_CLASS(TitleScreen, Control)
 
 	private:
+		// Pointers for singleplayer button functionality
 		Node* singleplayer_button_node;
-		Node* multiplayer_button_node;
 		Button* singleplayer_button;
+
+		// Pointers for multiplayer button functionality
+		Node* multiplayer_button_node;
 		Button* multiplayer_button;
 
 	public:
@@ -37,8 +38,10 @@ namespace godot {
 		// Function that's called when the title_screen and all of its children are spawned
 		void _ready();
 
+		// Function that's called when the singleplayer button is pressed
 		void _on_SingleplayerButton_pressed();
 
+		// Function that's called when the multiplayer button is pressed
 		void _on_MultiplayerButton_pressed();
 	};
 }
