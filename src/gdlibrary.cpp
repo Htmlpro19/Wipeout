@@ -12,6 +12,7 @@
 #include "wipeout_fist_opposite.h"
 #include "checkpoint.h"
 #include "gameover_screen.h"
+#include "player_singleplayer.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
@@ -37,4 +38,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::WipeoutFistOpposite>();
     godot::register_class<godot::Checkpoint>();
     godot::register_class<godot::GameoverScreen>();
+    godot::register_class<godot::PlayerSingleplayer>();
 }
