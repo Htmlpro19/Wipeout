@@ -3,6 +3,7 @@
 using namespace godot;
 
 void Player::_register_methods() {
+	register_method((char*) "_ready", &Player::_ready);
 	register_method("_process", &Player::_process);
 	register_method("_physics_process", &Player::_physics_process);
 	register_method("_play_anim", &Player::_play_anim);
@@ -25,7 +26,11 @@ void Player::_init() {
 }
 
 void Player::_process(float delta) {
-
+	//godot::Godot::print(get_translation());
+	if (get_translation().y < 0 && 
+		can_lose_life && 
+		curr_lives > 0)
+		lose_life();
 }
 
 void Player::_physics_process(float delta) {
@@ -199,6 +204,22 @@ void Player::_ready() {
 	{
 		Godot::print("PLAYER IS NULL");
 	}
+
+	// Set references to life gui.
+	// Get GUI heart nodes
+	Node* n_heart_1 = get_node("../HealthGui/HBoxContainer/NinePatchRect/TextureRect");
+	Node* n_heart_2 = get_node("../HealthGui/HBoxContainer/NinePatchRect2/TextureRect");
+	Node* n_heart_3 = get_node("../HealthGui/HBoxContainer/NinePatchRect3/TextureRect");
+
+	// Cast to "Heart" objects
+	Heart* heart_1 = cast_to<Heart>(n_heart_1);
+	Heart* heart_2 = cast_to<Heart>(n_heart_2);
+	Heart* heart_3 = cast_to<Heart>(n_heart_3);
+
+	// Store in array.
+	lives[0] = heart_1;
+	lives[1] = heart_2;
+	lives[2] = heart_3;
 }
 
 void Player::_area_entered_ball() {
@@ -221,6 +242,27 @@ void Player::_set_position(Vector3 pos)
 		Godot::print("ERROR");
 	}
 
+}
+
+/**
+ *  Decrement the player's life by one and change the GUI
+ *  accordingly. If player loses all three lives, trigger
+ *  game over screen. Respawn player at last known checkpoint.
+ **/
+void Player::lose_life() {
+	//godot::Godot::print("life lost!");
+	can_lose_life = 0;
+	curr_lives--;
+	lives[curr_lives]->lose_life();
+	if (curr_lives == 0) {
+		for (int i = 0; i < 3; i++)
+			lives[i]->reset_life();
+		get_tree()->change_scene("res://main_scenes/GameoverScreen.tscn");
+	}
+}
+
+void Player::set_can_lose_life(int lose_life) {
+	can_lose_life = lose_life;
 }
 
 /**

@@ -30,7 +30,7 @@ void WaterBottom::_ready() {
 void WaterBottom::_area_entered() {
 	player_node = get_parent()->get_node("Player1");
 	if (player_node) {
-		player = godot::Object::cast_to<KinematicBody>(player_node);
+		player_body = godot::Object::cast_to<KinematicBody>(player_node);
 	}
 
 	Godot::print("Respawn");
@@ -38,5 +38,9 @@ void WaterBottom::_area_entered() {
 	Vector3 respawn_origin = Vector3(0, 0, 0);
 	Transform respawn_transform = Transform(respawn_basis, respawn_origin);
 
-	player->set_global_transform(respawn_transform);
+	player_body->set_global_transform(respawn_transform);
+	if (player_body) {	
+		player = cast_to<Player>(player_body);
+		player->set_can_lose_life(1);
+	}
 }

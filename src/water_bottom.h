@@ -7,6 +7,7 @@
 #include <Node.hpp>
 #include <KinematicBody.hpp>
 #include <Area.hpp>
+#include "player.h"
 
 // WaterBottom class defined in the godot namespace
 namespace godot {
@@ -18,7 +19,8 @@ namespace godot {
 		Node* area_node;
 		Node* player_node;
 		Area* area;
-		KinematicBody* player;
+		KinematicBody* player_body;
+		Player* player;
 
 	public:
 		static void _register_methods();

@@ -17,7 +17,8 @@ func _ready():
 
 
 func _on_RestartButton_pressed():
-	get_tree().change_scene("res://main_scenes/MultiplayerScreen.tscn")
+	#get_tree().change_scene("res://main_scenes/MultiplayerScreen.tscn")
+	get_tree().change_scene("res://main_scenes/TitleScreen.tscn")
 
 
 func _on_QuitButton_pressed():
