@@ -17,8 +17,10 @@ namespace godot {
 	private:
 		Node* area_node;
 		Node* player_node;
+		Node* player2_node;
 		Area* area;
 		KinematicBody* player;
+		KinematicBody* player2;
 
 	public:
 		static void _register_methods();

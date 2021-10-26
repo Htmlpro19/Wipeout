@@ -37,4 +37,9 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::WipeoutFistOpposite>();
     godot::register_class<godot::Checkpoint>();
     godot::register_class<godot::GameoverScreen>();
+    godot::register_class<godot::WorldMultiplayer>();
+    godot::register_class<godot::ClientInput>();
+    godot::register_class<godot::HostInput>();
+    godot::register_class<godot::Lobby>();
+    
 }
