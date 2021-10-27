@@ -12,7 +12,7 @@
 #include <SceneTree.hpp>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
-//#include "game_manager.h"
+#include "game_manager.h"
 
 
 // WorldMultiplayer class defined in the godot namespace
@@ -26,6 +26,10 @@ namespace godot {
 		Node* player2pos_node;
 		Position3D* player1pos;
 		Position3D* player2pos;
+
+		// Pointers for GameManager functionality
+		Node* game_manager_node;
+		GameManager* game_manager;
 
 
 	public:

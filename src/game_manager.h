@@ -66,6 +66,7 @@ namespace godot {
 		NetworkedMultiplayerENet* network;
 		String current_player_name = "";           // Defines the name of the current player
 		String player_names[2] = {"", ""};          // Defines a dictionary with a mapping from player id to player name
+		int player_ids[2] = { 1, 0 };
 		int local_player_id = 1;                    // Defines id for local player
 		int port = 3234;                            // Defines port number used for server connection
 		int max_players = 2;                        // Defines the max number of players

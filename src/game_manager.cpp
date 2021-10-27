@@ -66,6 +66,7 @@ void GameManager::_client_start() {
 	network = NetworkedMultiplayerENet::_new();
 	network->create_client("127.0.0.1", port);
 	get_tree()->set_network_peer(network);
+	player_ids[1] = get_tree()->get_network_unique_id();
 
 	// Connects network signals to defined functions
 	get_tree()->connect("connection_failed", this, "_connected_fail");
