@@ -41,5 +41,5 @@ void godot::HostInput::_onButton_pressed() {
 
 	game_manager->_host_start();
 
-	//get_tree()->change_scene("res://main_scenes/Lobby.tscn");
+	get_tree()->change_scene("res://main_scenes/Lobby.tscn");
 }
