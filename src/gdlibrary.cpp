@@ -11,6 +11,7 @@
 #include "water_bottom.h"
 #include "wipeout_fist_opposite.h"
 #include "checkpoint.h"
+#include "heart.h"
 #include "gameover_screen.h"
 #include "world_multiplayer.h"
 #include "client_input.h" 
@@ -40,6 +41,7 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::WaterBottom>();
     godot::register_class<godot::WipeoutFistOpposite>();
     godot::register_class<godot::Checkpoint>();
+    godot::register_class<godot::Heart>();
     godot::register_class<godot::GameoverScreen>();
     godot::register_class<godot::WorldMultiplayer>();
     godot::register_class<godot::ClientInput>();

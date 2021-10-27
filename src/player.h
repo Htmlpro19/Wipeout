@@ -13,6 +13,11 @@
 #include <Node.hpp>
 #include <Spatial.hpp>
 #include <InputEventMouseMotion.hpp>
+#include <PackedScene.hpp>
+#include <SceneTree.hpp>
+#include <Viewport.hpp>
+#include "heart.h"
+#include "checkpoint.h"
 
 // Player class defined in the godot namespace
 namespace godot {
@@ -42,6 +47,9 @@ namespace godot {
 		Area* area;
 
 		int can_bounce = 0;
+
+		int curr_lives = 3;
+		int can_lose_life = 1;
 
 		// Player's checkpoint value.
 		Vector3 curr_checkpoint;
@@ -84,6 +92,20 @@ namespace godot {
 
 		// Set the player's current checkpoint location.
 		void _set_checkpoint(Vector3 pos);
+
+		// Decrement the current life by one, and change
+		// Health GUI accordingly.
+		void lose_life();
+
+		// Whether or not the player can lose a life. 
+		// Gives respawn time to occur.
+		void set_can_lose_life(int lose_life);
+
+		// Whether or not this player can lose a life. 
+		// I.e., whether or not this is a single player game.
+		int has_life_loss_mechanics;
+
+		godot::Heart* lives[3];
 	};
 }
 
