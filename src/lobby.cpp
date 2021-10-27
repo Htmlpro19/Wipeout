@@ -1,86 +1,60 @@
 #include "lobby.h"
 
-void godot::Lobby::_register_methods()
-{
+void godot::Lobby::_register_methods() {
 	register_method("_ready", &Lobby::_ready);
 	register_method("_refresh_players", &Lobby::_refresh_players);
 	register_method("_onButton_pressed", &Lobby::_onButton_pressed);
 }
 
-godot::Lobby::Lobby()
-{
+godot::Lobby::Lobby() {
+
 }
 
-godot::Lobby::~Lobby()
-{
+godot::Lobby::~Lobby() {
+
 }
 
-void godot::Lobby::_init()
-{
+void godot::Lobby::_init() {
+
 }
 
-void godot::Lobby::_ready()
-{
-	//Get the nodes for the player list and start game button
-	player_list_node = get_node("/TextureRect/VBoxContainer/ItemList");
-	start_game_button_node = get_node("/TextureRect/VBoxContainer/Button");
-
-	//Try and cast nodes to their respective types
-	if (player_list_node)
-	{
-		player_list = godot::Object::cast_to<ItemList>(player_list_node);
-	}
-	else
-	{
-		Godot::print("Player List Node is NULL in Lobby");
-	}
-
-	if (start_game_button_node)
-	{
+void godot::Lobby::_ready() {
+	// Get startgame button node
+	start_game_button_node = get_node("TextureRect/VBoxContainer/Button");
+	if (start_game_button_node) {
 		start_game_button = godot::Object::cast_to<Button>(start_game_button_node);
 		start_game_button->connect("pressed", this, "_onButton_pressed");
 	}
-	else
-	{
-		Godot::print("Start game button Node is NULL in Lobby");
+
+	// Gets the game manager
+	game_manager_node = (get_tree()->get_root())->get_node("GameManager");
+	if (game_manager_node) {
+		game_manager = godot::Object::cast_to<GameManager>(game_manager_node);
+	}
+
+	// Makes the start game button only visible to the host
+	if ((game_manager->local_player_id) != 1) {
+		start_game_button->set_visible(false);
+	}
+
+	// Refreshes the player list
+	_refresh_players();
+}
+
+void godot::Lobby::_refresh_players() {
+	// Get item list node
+	item_list_node = get_node("TextureRect/VBoxContainer/ItemList");
+	if (item_list_node) {
+		item_list = godot::Object::cast_to<ItemList>(item_list_node);
+		item_list->set_item_text(0, (game_manager->player_names)[0]);
+		item_list->set_item_text(1, (game_manager->player_names)[1]);
+	}
+	else {
+		Godot::print("Can't find list");
 	}
 }
 
-void godot::Lobby::_refresh_players()
-{
-	
-	if (player_list)
-	{
-		player_list->clear();
-	}
-	else
-	{
-		Godot::print("Player List is NULL in Lobby");
-	}
-
-	//if (game_manager)
-	//{
-	//	for i in (game_manager->player_names)->keys()
-	//	{
-	//		player_list->add_item((game_manager->player_names)[i], null, false);
-	//	}
-	//}
-	//else
-	//{
-	//	Godot::print("Game manager is NULL in Lobby")
-	//}
-
-
-}
-
-void godot::Lobby::_onButton_pressed()
-{
-	/*if (game_manager)
-	{
-		game_manager->_setup_game_start();
-	}
-	else
-	{
-		Godot::print("Game manager is NULL in Lobby")
-	}*/
+void godot::Lobby::_onButton_pressed() {
+	// Sets up the initiation of the game for all players
+	game_manager->_setup_game_start();
 }

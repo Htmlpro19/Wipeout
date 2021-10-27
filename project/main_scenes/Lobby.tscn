@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://images_and_materials/Background.png" type="Texture" id=1]
-[ext_resource path="res://main_scenes/Lobby.gd" type="Script" id=2]
+[ext_resource path="res://bin/Lobby.gdns" type="Script" id=2]
 
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
@@ -51,5 +51,3 @@ margin_top = 103.0
 margin_right = 295.0
 margin_bottom = 123.0
 text = "Start Game"
-
-[connection signal="pressed" from="TextureRect/VBoxContainer/Button" to="." method="_on_Button_pressed"]
