@@ -17,8 +17,8 @@ namespace godot {
 		GODOT_CLASS(Lobby, Control)
 
 	private:
-		Node* player_list;
-		Node* start_game_button;
+		Node* player_list_node;
+		Node* start_game_button_node;
 
 	public:
 		// Function required by godot to regester new methods and properties

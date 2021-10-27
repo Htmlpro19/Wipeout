@@ -12,6 +12,10 @@
 #include "wipeout_fist_opposite.h"
 #include "checkpoint.h"
 #include "gameover_screen.h"
+#include "world_multiplayer.h"
+#include "client_input.h" 
+#include "host_input.h"
+#include "lobby.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
