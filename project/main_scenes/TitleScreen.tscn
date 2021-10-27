@@ -21,6 +21,8 @@ __meta__ = {
 }
 
 [node name="TitleImage" type="TextureRect" parent="."]
+anchor_top = 1.05964e-08
+anchor_bottom = 1.05964e-08
 margin_left = 23.0
 margin_top = 96.0
 margin_right = 1269.0

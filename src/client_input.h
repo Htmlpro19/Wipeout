@@ -8,7 +8,7 @@
 #include <Node.hpp>
 #include <Button.hpp>
 #include <SceneTree.hpp>
-//#include "game_manager.h"
+#include "game_manager.h"
 
 // ClientInput class defined in the godot namespace
 namespace godot {
@@ -23,8 +23,9 @@ namespace godot {
 		Button* button;
 
 	public:
-		/*	Node* game_manager_node(get_tree()->get_root())->get_node("GameManager");
-		GameManager* game_manager = godot::Object::cast_to<GameManager>(game_manager_node);*/
+		
+		Node* game_manager_node;
+		GameManager* game_manager;
 
 		// Function required by godot to regester new methods and properties
 		static void _register_methods();
@@ -39,7 +40,7 @@ namespace godot {
 
 		void _ready();
 
-		void _onButton_pressed();
+		void _on_Button_pressed();
 	};
 }
 
