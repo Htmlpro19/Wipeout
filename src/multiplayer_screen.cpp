@@ -43,12 +43,15 @@ void MultiplayerScreen::_ready() {
 
 void MultiplayerScreen::_on_HostButton_pressed() {
 	Godot::print("Host Button pressed");
+	get_tree()->change_scene("res://main_scenes/HostNameInputScreen.tscn");
 }
 
 void MultiplayerScreen::_on_JoinButton_pressed() {
 	Godot::print("Join Button pressed");
+	get_tree()->change_scene("res://main_scenes/ClientNameInputScreen.tscn");
 }
 
 void MultiplayerScreen::_on_BackButton_pressed() {
+	Godot::print("Back Button pressed");
 	get_tree()->change_scene("res://main_scenes/TitleScreen.tscn");
 }

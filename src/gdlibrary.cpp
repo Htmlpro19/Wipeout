@@ -13,6 +13,10 @@
 #include "checkpoint.h"
 #include "heart.h"
 #include "gameover_screen.h"
+#include "world_multiplayer.h"
+#include "client_input.h" 
+#include "host_input.h"
+#include "lobby.h"
 
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options * o) {
     godot::Godot::gdnative_init(o);
@@ -39,4 +43,9 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void* handle) {
     godot::register_class<godot::Checkpoint>();
     godot::register_class<godot::Heart>();
     godot::register_class<godot::GameoverScreen>();
+    godot::register_class<godot::WorldMultiplayer>();
+    godot::register_class<godot::ClientInput>();
+    godot::register_class<godot::HostInput>();
+    godot::register_class<godot::Lobby>();
+    
 }
