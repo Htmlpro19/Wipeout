@@ -12,6 +12,8 @@
 #include <SceneTree.hpp>
 #include <ResourceLoader.hpp>
 #include <PackedScene.hpp>
+//#include "game_manager.h"
+
 
 // WorldMultiplayer class defined in the godot namespace
 namespace godot {

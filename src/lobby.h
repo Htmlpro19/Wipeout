@@ -9,6 +9,7 @@
 #include <Node.hpp>
 #include <Button.hpp>
 #include <SceneTree.hpp>
+//#include "game_manager.h"
 
 // Lobby class defined in the godot namespace
 namespace godot {

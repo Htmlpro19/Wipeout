@@ -8,6 +8,7 @@
 #include <Node.hpp>
 #include <Button.hpp>
 #include <SceneTree.hpp>
+//#include "game_manager.h"
 
 // HostInput class defined in the godot namespace
 namespace godot {
