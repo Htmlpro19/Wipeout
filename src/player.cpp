@@ -29,6 +29,7 @@ void Player::_process(float delta) {
 	//godot::Godot::print(get_translation());
 	if (get_translation().y < 0 && 
 		can_lose_life && 
+		has_life_loss_mechanics && 
 		curr_lives > 0)
 		lose_life();
 }
@@ -220,6 +221,8 @@ void Player::_ready() {
 	lives[0] = heart_1;
 	lives[1] = heart_2;
 	lives[2] = heart_3;
+
+	has_life_loss_mechanics = n_heart_1 && n_heart_2 && n_heart_3;
 }
 
 void Player::_area_entered_ball() {

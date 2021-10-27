@@ -101,6 +101,10 @@ namespace godot {
 		// Gives respawn time to occur.
 		void set_can_lose_life(int lose_life);
 
+		// Whether or not this player can lose a life. 
+		// I.e., whether or not this is a single player game.
+		int has_life_loss_mechanics;
+
 		godot::Heart* lives[3];
 	};
 }
