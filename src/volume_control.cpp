@@ -23,6 +23,7 @@ void VolumeControl::_ready() {
         audio_player = godot::Object::cast_to<AudioStreamPlayer>(n_audio_player);
     this->connect("toggled", this, "_on_mute_pressed");
     current_state = UNMUTED;
+    this->set_focus_mode(FOCUS_NONE);
 }
 
 /**
