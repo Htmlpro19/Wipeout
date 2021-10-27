@@ -4,10 +4,14 @@
 // All files needed for WorldMultiplayer class
 #include <Godot.hpp>
 #include <Spatial.hpp>
+#include <Position3D.hpp>
+#include <KinematicBody.hpp>
 #include <Viewport.hpp>
 #include <Node.hpp>
 #include <Button.hpp>
 #include <SceneTree.hpp>
+#include <ResourceLoader.hpp>
+#include <PackedScene.hpp>
 
 // WorldMultiplayer class defined in the godot namespace
 namespace godot {
@@ -15,6 +19,12 @@ namespace godot {
 	class WorldMultiplayer : public Spatial {
 		// Macro which identifies the multiplayer screen class and which class it extends to godot
 		GODOT_CLASS(WorldMultiplayer, Spatial)
+	private:
+		Node* player1pos_node;
+		Node* player2pos_node;
+		Position3D* player1pos;
+		Position3D* player2pos;
+
 
 	public:
 		// Function required by godot to regester new methods and properties

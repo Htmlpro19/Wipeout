@@ -19,4 +19,31 @@ void godot::WorldMultiplayer::_init()
 
 void godot::WorldMultiplayer::_ready()
 {
+	player1pos_node = get_node("Player1Pos");
+	player2pos_node = get_node("Player2Pos");
+
+	player1pos = godot::Object::cast_to<Position3D>(player1pos_node);
+	player2pos = godot::Object::cast_to<Position3D>(player2pos_node);
+
+	if (!player1pos || !player2pos)
+	{
+		Godot::print("Player1pos or player2pos is NULL in world_multiplayer");
+	}
+
+	ResourceLoader* rloader = ResourceLoader::get_singleton();
+	Ref<PackedScene> res = rloader->load("res://sub_scenes/Player.tscn");
+	
+	KinematicBody* player1 = godot::Object::cast_to<KinematicBody>(res->instance());
+	player1->set_name("Player 1");
+	/*player1->set_network_master();*/
+	player1->set_translation(player1pos->get_transform().origin);
+	get_tree()->get_root()->add_child(player1);
+		
+	
+	KinematicBody* player2 = godot::Object::cast_to<KinematicBody>(res->instance());
+	player2->set_name("Player 2");
+	/*player2->set_network_master();*/
+	player2->set_translation(player2pos->get_transform().origin);
+	get_tree()->get_root()->add_child(player2);
+
 }

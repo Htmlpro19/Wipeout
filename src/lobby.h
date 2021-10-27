@@ -22,11 +22,12 @@ namespace godot {
 		Node* start_game_button_node;
 		ItemList* player_list;
 		Button* start_game_button;
-
-	/*	Node* game_manager_node(get_tree()->get_root())->get_node("GameManager");
-		GameManager* game_manager = godot::Object::cast_to<GameManager>(game_manager_node);*/
+	
 
 	public:
+		/*	Node* game_manager_node(get_tree()->get_root())->get_node("GameManager");
+		GameManager* game_manager = godot::Object::cast_to<GameManager>(game_manager_node);*/
+
 		// Function required by godot to regester new methods and properties
 		static void _register_methods();
 

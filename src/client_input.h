@@ -15,8 +15,16 @@ namespace godot {
 	class ClientInput : public LineEdit {
 		// Macro which identifies the multiplayer screen class and which class it extends to godot
 		GODOT_CLASS(ClientInput, LineEdit)
+	private:
+		Node* client_input_node;
+		LineEdit* client_input;
+		Node* button_node;
+		Button* button;
 
 	public:
+		/*	Node* game_manager_node(get_tree()->get_root())->get_node("GameManager");
+		GameManager* game_manager = godot::Object::cast_to<GameManager>(game_manager_node);*/
+
 		// Function required by godot to regester new methods and properties
 		static void _register_methods();
 
