@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sub_scenes/Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sub_scenes/Player.tscn" type="PackedScene" id=2]
@@ -20,9 +20,7 @@
 [ext_resource path="res://bin/WipeoutFist.gdns" type="Script" id=18]
 [ext_resource path="res://bin/SpinningBlock2.gdns" type="Script" id=19]
 [ext_resource path="res://sub_scenes/HealthGui.tscn" type="PackedScene" id=20]
-[ext_resource path="res://images_and_materials/volume.png" type="Texture" id=21]
-[ext_resource path="res://images_and_materials/no_volume.png" type="Texture" id=22]
-[ext_resource path="res://bin/VolumeControl.gdns" type="Script" id=23]
+[ext_resource path="res://sub_scenes/SoundGui.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -63,34 +61,7 @@ adjustment_enabled = true
 [node name="HealthGui" parent="." instance=ExtResource( 20 )]
 margin_right = 260.0
 
-[node name="SoundGui" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SoundGui"]
-margin_right = 40.0
-margin_bottom = 40.0
-custom_constants/separation = 1000
-
-[node name="NinePatchRect" type="NinePatchRect" parent="SoundGui/HBoxContainer"]
-margin_bottom = 40.0
-
-[node name="MuteButton" type="TextureButton" parent="SoundGui/HBoxContainer/NinePatchRect"]
-margin_left = 1127.9
-margin_top = 2.00342
-margin_right = 1447.9
-margin_bottom = 322.003
-rect_scale = Vector2( 0.4, 0.4 )
-toggle_mode = true
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 22 )
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SoundGui" parent="." instance=ExtResource( 21 )]
 
 [node name="Player1" parent="." instance=ExtResource( 2 )]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://sub_scenes/Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main_scenes/WorldMultiplayer.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://bin/Trophy.gdns" type="Script" id=17]
 [ext_resource path="res://bin/WipeoutFist.gdns" type="Script" id=18]
 [ext_resource path="res://bin/SpinningBlock2.gdns" type="Script" id=19]
+[ext_resource path="res://sub_scenes/SoundGui.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -53,6 +54,8 @@ adjustment_enabled = true
 
 [node name="World" type="Spatial"]
 script = ExtResource( 2 )
+
+[node name="SoundGui" parent="." instance=ExtResource( 20 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.161428, 18.3514, 0 )
