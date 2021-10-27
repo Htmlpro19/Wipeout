@@ -63,7 +63,7 @@ namespace godot {
 		void _game_start();
 
 		// Declaring and initializing global variables
-		NetworkedMultiplayerENet* network = new NetworkedMultiplayerENet;
+		NetworkedMultiplayerENet* network;
 		String current_player_name = "";            // Defines the name of the current player
 		String player_names[2] = {"", ""};          // Defines a dictionary with a mapping from player id to player name
 		int local_player_id = 1;                    // Defines id for local player

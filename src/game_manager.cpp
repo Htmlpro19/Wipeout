@@ -31,6 +31,7 @@ void GameManager::_init() {
 
 void GameManager::_host_start() {
 	// Creates and sets the server
+	network = NetworkedMultiplayerENet::_new();
 	network->create_server(port, max_players);
 	get_tree()->set_network_peer(network);
 
@@ -62,6 +63,7 @@ void GameManager::_send_player_info(int client_id, String client_name) {
 
 void GameManager::_client_start() {
 	// Creates and sets the client
+	network = NetworkedMultiplayerENet::_new();
 	network->create_client("127.0.0.1", port);
 	get_tree()->set_network_peer(network);
 

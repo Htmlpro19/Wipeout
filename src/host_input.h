@@ -1,24 +1,25 @@
 #ifndef HOST_INPUT_H
 #define HOST_INPUT_H
 
-// All files needed for HostInput class
 #include <Godot.hpp>
 #include <LineEdit.hpp>
 #include <Viewport.hpp>
 #include <Node.hpp>
 #include <Button.hpp>
 #include <SceneTree.hpp>
-//#include "game_manager.h"
+#include "game_manager.h"
 
 // HostInput class defined in the godot namespace
 namespace godot {
 	// Definition for HostInput class which extends the LineEdit class
 	class HostInput : public LineEdit {
-		// Macro which identifies the multiplayer screen class and which class it extends to godot
 		GODOT_CLASS(HostInput, LineEdit)
 	private:
-		Node* host_input_node;
-		LineEdit* host_input;
+		// Pointers for GameManager functionality
+		Node* game_manager_node;
+		GameManager* game_manager;
+
+		// Pointers for Button functionality
 		Node* button_node;
 		Button* button;
 	

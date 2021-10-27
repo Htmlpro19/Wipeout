@@ -50,6 +50,3 @@ margin_top = 565.0
 margin_right = 728.0
 margin_bottom = 638.0
 text = "Back"
-
-[connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
-[connection signal="pressed" from="JoinButton" to="." method="_on_JoinButton_pressed"]
