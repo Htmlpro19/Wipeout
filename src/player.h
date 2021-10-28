@@ -18,6 +18,7 @@
 #include <Viewport.hpp>
 #include "heart.h"
 #include "checkpoint.h"
+#include "game_manager.h"
 
 // Player class defined in the godot namespace
 namespace godot {
@@ -57,6 +58,10 @@ namespace godot {
 		//Reference to this player's node
 		Node* playerNode;
 		KinematicBody* player;
+
+		// Pointers for GameManager functionality
+		/*Node* game_manager_node;
+		GameManager* game_manager;*/
 
 	public:
 		// Function required by godot to regester new methods and properties

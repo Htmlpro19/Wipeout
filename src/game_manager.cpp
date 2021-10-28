@@ -53,6 +53,16 @@ void GameManager::_player_connected(int player_id) {
 
 void GameManager::_player_disconnected(int player_id) {
 	Godot::print("Player disconnected!");
+	Node* player2 = get_tree()->get_root()->get_node("Player2");
+	if (player2)
+	{
+		get_tree()->get_root()->remove_child(player2);
+	}
+	else
+	{
+		Godot::print("Player2 node is null in game manager");
+	}
+	
 }
 
 void GameManager::_send_player_info(int client_id, String client_name) {
@@ -83,6 +93,8 @@ void GameManager::_connected_fail() {
 
 void GameManager::_server_disconnected() {
 	Godot::print("Server disconnected!");
+	get_tree()->change_scene("res://main_scenes/TitleScreen.tscn");
+	
 }
 
 void GameManager::_connected_ok() {
@@ -112,3 +124,16 @@ void GameManager::_setup_game_start() {
 void GameManager::_game_start() {
 	get_tree()->change_scene("res://main_scenes/WorldMultiplayer.tscn");
 }
+
+//Node* GameManager::get_scene_node()
+//{
+//	Node* scene = get_tree()->get_root()->get_node("WorldMultiplayer");
+//
+//	if (!scene)
+//	{
+//		Godot::print("Scene is NULL in game manager");
+//	}
+//
+//	return scene;
+//
+//}

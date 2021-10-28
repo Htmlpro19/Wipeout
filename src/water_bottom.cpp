@@ -15,6 +15,12 @@ WaterBottom::~WaterBottom() {}
 void WaterBottom::_init() {}
 
 void WaterBottom::_ready() {
+	
+	/*game_manager_node = (get_tree()->get_root())->get_node("GameManager");
+	if (game_manager_node) {
+		game_manager = godot::Object::cast_to<GameManager>(game_manager_node);
+	}*/
+	
 	area_node = get_node("Area");
 	if (area_node) {
 		area = godot::Object::cast_to<Area>(area_node);
@@ -25,7 +31,8 @@ void WaterBottom::_ready() {
 /**
  *  Callback method when player enters water area.
  **/
-void WaterBottom::_area_entered() {
+void WaterBottom::_area_entered(Node* body) {
+
 	// Respawn Player1 on both single and mutliplayer.
 	n_player1 = get_parent()->get_node("Player1");
 	if (n_player1) {
@@ -36,12 +43,26 @@ void WaterBottom::_area_entered() {
 			player1->set_can_lose_life(1);
 	}
 
-	// For multiplayer -- i.e., if a Player2 exists.
-	n_player2 = get_parent()->get_node("Player2");
-	if (n_player2) {
-		player2_body = godot::Object::cast_to<KinematicBody>(n_player2);
-		respawn(player2_body);
+
+	// For multiplayer -- i.e., if a Player1 exists.
+	if (body->get_name() == "Player1")
+	{
+		n_player1 = get_tree()->get_root()->get_node("Player1");
+		if (n_player1) {
+			player1_body = godot::Object::cast_to<KinematicBody>(n_player1);
+			respawn(player1_body);
+		}
 	}
+	else
+	{
+		// For multiplayer -- i.e., if a Player2 exists.
+		n_player2 = get_tree()->get_root()->get_node("Player2");
+		if (n_player2) {
+			player2_body = godot::Object::cast_to<KinematicBody>(n_player2);
+			respawn(player2_body);
+		}
+	}
+
 }
 
 /**

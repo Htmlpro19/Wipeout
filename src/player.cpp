@@ -22,6 +22,13 @@ Player::~Player() {
 }
 
 void Player::_init() {
+	
+	// Gets the game manager
+	/*game_manager_node = (get_tree()->get_root())->get_node("GameManager");
+	if (game_manager_node) {
+		game_manager = godot::Object::cast_to<GameManager>(game_manager_node);
+	}*/
+
 	input = Input::get_singleton();
 }
 
@@ -163,6 +170,13 @@ void Player::_input(Variant event) {
 }
 
 void Player::_ready() {
+	/*if (game_manager)
+	{
+		area_node = game_manager->get_scene_node();
+	}
+	*/
+
+
 	area_node = get_parent()->get_node("WipeoutBall/Area");
 	if (area_node) {
 		area = godot::Object::cast_to<Area>(area_node);
@@ -226,6 +240,7 @@ void Player::_ready() {
 }
 
 void Player::_area_entered_ball() {
+	Godot::print("INSIDE AREA ENTERED BALL");
 	if (can_bounce >= 5 ) {
 		Godot::print("Bounce");
 		vertical_velocity = JUMP_FORCE * 1.5;

@@ -8,6 +8,8 @@
 #include <KinematicBody.hpp>
 #include <Area.hpp>
 #include "player.h"
+#include "game_manager.h"
+#include <Viewport.hpp>
 
 // WaterBottom class defined in the godot namespace
 namespace godot {
@@ -26,6 +28,10 @@ namespace godot {
 		Node* n_player2;
 		KinematicBody* player2_body;
 
+		Node* game_manager_node;
+		GameManager* game_manager;
+
+
 	public:
 		static void _register_methods();
 
@@ -39,7 +45,7 @@ namespace godot {
 
 		void _ready();
 
-		void _area_entered();
+		void _area_entered(Node* body);
 
 		void respawn(KinematicBody* body);
 	};

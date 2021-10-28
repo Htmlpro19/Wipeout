@@ -6,6 +6,7 @@
 #include <SceneTree.hpp>
 #include <NetworkedMultiplayerENet.hpp>
 #include <NetworkedMultiplayerPeer.hpp>
+#include <Viewport.hpp>
 
 // Title screen class defined in the godot namespace
 namespace godot {
@@ -62,6 +63,8 @@ namespace godot {
 		// Function that changes scenes to multiplayer world
 		void _game_start();
 	
+		Node* get_scene_node();
+
 		// Declaring and initializing global variables
 		NetworkedMultiplayerENet* network;
 		String current_player_name = "";           // Defines the name of the current player

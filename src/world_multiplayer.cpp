@@ -40,14 +40,14 @@ void godot::WorldMultiplayer::_ready()
 	Ref<PackedScene> res = rloader->load("res://sub_scenes/Player.tscn");
 	
 	KinematicBody* player1 = godot::Object::cast_to<KinematicBody>(res->instance());
-	player1->set_name("Player 1");
+	player1->set_name("Player1");
 	player1->set_network_master(game_manager->player_ids[0]);
 	player1->set_translation(player1pos->get_transform().origin);
 	get_tree()->get_root()->add_child(player1);
 		
 	
 	KinematicBody* player2 = godot::Object::cast_to<KinematicBody>(res->instance());
-	player2->set_name("Player 2");
+	player2->set_name("Player2");
 	player2->set_network_master(game_manager->player_ids[1]);
 	player2->set_translation(player2pos->get_transform().origin);
 	get_tree()->get_root()->add_child(player2);
