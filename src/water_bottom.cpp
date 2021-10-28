@@ -16,10 +16,15 @@ void WaterBottom::_init() {}
 
 void WaterBottom::_ready() {
 	
-	/*game_manager_node = (get_tree()->get_root())->get_node("GameManager");
+	game_manager_node = (get_tree()->get_root())->get_node("GameManager");
 	if (game_manager_node) {
 		game_manager = godot::Object::cast_to<GameManager>(game_manager_node);
-	}*/
+	}
+
+	if (!game_manager)
+	{
+		Godot::print("GAME MANAGER IS NULL IN WATER BOTTOM");
+	}
 	
 	area_node = get_node("Area");
 	if (area_node) {

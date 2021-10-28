@@ -63,6 +63,7 @@ namespace godot {
 		// Function that changes scenes to multiplayer world
 		void _game_start();
 	
+		void set_scene_node(Node* node);
 		Node* get_scene_node();
 
 		// Declaring and initializing global variables
@@ -73,6 +74,7 @@ namespace godot {
 		int local_player_id = 1;                    // Defines id for local player
 		int port = 3234;                            // Defines port number used for server connection
 		int max_players = 2;                        // Defines the max number of players
+		Node* scene;
 
 	};
 }

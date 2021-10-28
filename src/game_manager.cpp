@@ -125,15 +125,17 @@ void GameManager::_game_start() {
 	get_tree()->change_scene("res://main_scenes/WorldMultiplayer.tscn");
 }
 
-//Node* GameManager::get_scene_node()
-//{
-//	Node* scene = get_tree()->get_root()->get_node("WorldMultiplayer");
-//
-//	if (!scene)
-//	{
-//		Godot::print("Scene is NULL in game manager");
-//	}
-//
-//	return scene;
-//
-//}
+void GameManager::set_scene_node(Node* node)
+{	
+	scene = node;
+
+	if (!scene)
+	{
+		Godot::print("Scene is NULL in game manager");
+	}
+}
+
+Node* GameManager::get_scene_node()
+{
+	return scene;
+}

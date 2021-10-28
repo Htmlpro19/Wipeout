@@ -60,8 +60,8 @@ namespace godot {
 		KinematicBody* player;
 
 		// Pointers for GameManager functionality
-		/*Node* game_manager_node;
-		GameManager* game_manager;*/
+		Node* game_manager_node;
+		GameManager* game_manager;
 
 	public:
 		// Function required by godot to regester new methods and properties

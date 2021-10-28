@@ -52,7 +52,7 @@ background_mode = 2
 background_sky = SubResource( 8 )
 adjustment_enabled = true
 
-[node name="World" type="Spatial"]
+[node name="WorldMultiplayer" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="SoundGui" parent="." instance=ExtResource( 20 )]

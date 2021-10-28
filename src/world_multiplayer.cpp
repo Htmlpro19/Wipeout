@@ -25,6 +25,11 @@ void godot::WorldMultiplayer::_ready()
 		game_manager = godot::Object::cast_to<GameManager>(game_manager_node);
 	}
 
+	if (game_manager)
+	{
+		game_manager->set_scene_node(get_parent()->get_node("WorldMultiplayer"));
+	}
+
 	player1pos_node = get_node("Player1Start");
 	player2pos_node = get_node("Player2Start");
 
