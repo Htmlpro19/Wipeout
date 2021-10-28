@@ -1,4 +1,4 @@
-# Game Technology Project 1
+# Game Technology Project 3
 Link for the milestone documentation https://docs.google.com/document/d/1t8HorXOx-rEY9dzhB3Me5K5IS5Ado_wxFXGeH4AB7Bo/edit
 ## Building the Project
 After checking out the project with either
