@@ -1,6 +1,8 @@
 # Game Technology Project 3
 Link for final project report https://docs.google.com/document/d/1MlbwcStqUpedNM_Ctx3XHIm1bnyHX51aCWAIDR_MSiA/edit?usp=sharing
 
+A video demo of the project can be found [here](https://youtu.be/6WgNJoIeO0Q).
+
 After checking out the project with either
 ```
 git clone git@gitlab.com:daniamir/gametechproject3.git
