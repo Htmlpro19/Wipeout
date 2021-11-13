@@ -1,4 +1,4 @@
-# Game Technology Project 3
+# Wipeout
 
 A video demo of the project can be found [here](https://youtu.be/6WgNJoIeO0Q).
 
