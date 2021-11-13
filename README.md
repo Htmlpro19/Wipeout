@@ -4,11 +4,11 @@ A video demo of the project can be found [here](https://youtu.be/6WgNJoIeO0Q).
 
 After checking out the project with either
 ```
-git clone git@gitlab.com:daniamir/gametechproject3.git
+git clone https://github.com/Htmlpro19/Wipeout.git
 ```
 or 
 ```
-git clone https://gitlab.com/daniamir/gametechproject3.git
+git clone https://github.com/Htmlpro19/Wipeout.git
 ```
 you should find all the necessary files to build the program. First we must build the CPP bindings.<br>
 Open your terminal of choice, and navigate to your project directory. Use the following commands to build the bindings:
