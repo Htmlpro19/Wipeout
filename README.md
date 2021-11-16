@@ -1,7 +1,5 @@
 # Wipeout
 
-A video demo of the project can be found [here](https://youtu.be/6WgNJoIeO0Q).
-
 After checking out the project with either
 ```
 git clone https://github.com/Htmlpro19/Wipeout.git
